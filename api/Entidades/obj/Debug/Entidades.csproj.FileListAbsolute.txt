@@ -1,0 +1,6 @@
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\bin\Debug\Entidades.dll
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\bin\Debug\Entidades.pdb
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\obj\Debug\Entidades.dll
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Entidades\obj\Debug\Entidades.pdb

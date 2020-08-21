@@ -1,0 +1,9 @@
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\bin\Debug\Datos.dll
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\bin\Debug\Datos.pdb
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\bin\Debug\Entidades.dll
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\bin\Debug\Entidades.pdb
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\obj\Debug\Datos.dll
+C:\Users\mgong\OneDrive\Documentos\GitHub\api-backend\api\Datos\obj\Debug\Datos.pdb
