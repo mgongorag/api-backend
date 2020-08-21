@@ -12,9 +12,17 @@ namespace ApiRest
     {
         [HttpPost]
         [Route("api/AgregarUsuario")]
-        public DataTable agregarUsuario(Entidades.Usuarios entidad)
+        public DataTable agregarUsuario(Entidades.EntidadUsuarios entidad)
         {
-            return Datos.Usuarios.agregarUsuario(entidad);
+            return Datos.DatosUsuario.agregarUsuario(entidad);
         }
+
+        [HttpPost]
+        [Route("api/ObtenerUsuarios")]
+        public DataTable obtenerUsuarios()
+        {
+            return Datos.DatosUsuario.obtenerUsuarios();
+        }
+
     }
 }
