@@ -24,5 +24,26 @@ namespace ApiRest
             return Datos.DatosUsuario.obtenerUsuarios();
         }
 
+        [HttpPost]
+        [Route("api/ObtenerDatosUsuario")]
+        public DataTable obtenerDatosUsuario(Entidades.EntidadUsuarios entidad)
+        {
+            return Datos.DatosUsuario.obtenerDatosUsuario(entidad);
+        }
+
+        [HttpPost]
+        [Route("api/EliminarUsuario")]
+        public DataTable eliminarUsuario(Entidades.EntidadUsuarios entidad)
+        {
+            return Datos.DatosUsuario.eliminarUsuario(entidad);
+        }
+
+        [HttpPost]
+        [Route("api/ActualizarUsuario")]
+        public DataTable ActualizarUsuario(Entidades.EntidadUsuarios entidad)
+        {
+            return Datos.DatosUsuario.actualizarUsuario(entidad);
+        }
+
     }
 }
