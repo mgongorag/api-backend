@@ -157,8 +157,5 @@ CREATE TABLE TblRolesPorMenus(
 
 ALTER SCHEMA Sesion TRANSFER dbo.TblRolesPorMenus;
 
-
-
-
-
-
+INSERT INTO Sistema.TblInstituciones values(1, 201, 'Ministerio de Salud', 1, 'Ciudad de Guatemala', getdate(), 1);
+INSERT INTO Sesion.TblUsuariosPorInstitucion values (1, 1, 1,1, getdate(), 1);

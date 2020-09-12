@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Datos;
+using Entidades;
 
 namespace ApiRest
 {
@@ -12,37 +14,44 @@ namespace ApiRest
     {
         [HttpPost]
         [Route("api/AgregarUsuario")]
-        public DataTable agregarUsuario(Entidades.EntidadUsuarios entidad)
+        public DataTable agregarUsuario(EntidadUsuarios entidad)
         {
-            return Datos.DatosUsuario.agregarUsuario(entidad);
+            return DatosUsuario.agregarUsuario(entidad);
         }
 
         [HttpPost]
         [Route("api/ObtenerUsuarios")]
         public DataTable obtenerUsuarios()
         {
-            return Datos.DatosUsuario.obtenerUsuarios();
+            return DatosUsuario.obtenerUsuarios();
         }
 
         [HttpPost]
         [Route("api/ObtenerDatosUsuario")]
-        public DataTable obtenerDatosUsuario(Entidades.EntidadUsuarios entidad)
+        public DataTable obtenerDatosUsuario(EntidadUsuarios entidad)
         {
-            return Datos.DatosUsuario.obtenerDatosUsuario(entidad);
+            return DatosUsuario.obtenerDatosUsuario(entidad);
         }
 
         [HttpPost]
         [Route("api/EliminarUsuario")]
-        public DataTable eliminarUsuario(Entidades.EntidadUsuarios entidad)
+        public DataTable eliminarUsuario(EntidadUsuarios entidad)
         {
-            return Datos.DatosUsuario.eliminarUsuario(entidad);
+            return DatosUsuario.eliminarUsuario(entidad);
         }
 
         [HttpPost]
         [Route("api/ActualizarUsuario")]
-        public DataTable ActualizarUsuario(Entidades.EntidadUsuarios entidad)
+        public DataTable ActualizarUsuario(EntidadUsuarios entidad)
         {
-            return Datos.DatosUsuario.actualizarUsuario(entidad);
+            return DatosUsuario.actualizarUsuario(entidad);
+        }
+
+        [HttpPost]
+        [Route("api/inicioDeSesion")]
+        public DataTable inicioDeSesion(EntidadUsuarios entidad)
+        {
+            return DatosUsuario.inicioDeSesion(entidad);
         }
 
     }
