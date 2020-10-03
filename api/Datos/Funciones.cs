@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,8 +11,9 @@ namespace Datos
 {
     public class Funciones
     {
+        private static DataTable dt = new DataTable();
         public static string lblStatus = "";
-        private static string codigoSeguridad = "m1gU3l";
+        private static string codigoSeguridad = "j@3!";
 
         public static string SeguridadSHA521(string pass)
         {
@@ -22,21 +25,63 @@ namespace Datos
             return Convert.ToBase64String(EncryptedByte);
         }
 
-
         public static string generarTokenSesion()
         {
-            Random rnd = new Random();
-            int aleatorio = rnd.Next(1, 9999999);
+            Random Rnd = new Random();
+            int Aleatorio = Rnd.Next(1, 99999);
 
-            string hora = DateTime.Now.ToString("hh:mm:ss");
-            string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+            string Hora = DateTime.Now.ToString("hh:mm:ss");
+            string Fecha = DateTime.Now.ToString("dd/MM/yyyy");
 
-            string txtToken = SeguridadSHA521(fecha + hora + aleatorio);
+            string TxtToken = SeguridadSHA521(Fecha + Hora + Aleatorio);
 
-            txtToken = Regex.Replace(txtToken, @"[^0-9A-Za-z]", "", RegexOptions.None);
+            TxtToken = Regex.Replace(TxtToken, @"[^0-9A-Za-z]", "", RegexOptions.None);
 
-            return txtToken;
+            return TxtToken;
         }
-        
+
+        public static int ObtenerEstadoToken(string TxtToken)
+        {
+            SqlCommand Comando = Conexion.crearComandoProc("Sesion.SPObtenerEstadoToken");
+            Comando.Parameters.AddWithValue("@_TxtToken", TxtToken);
+
+            dt.Reset();
+            dt.Clear();
+
+            dt = Conexion.ejecutarComandoSelect(Comando);
+            return Convert.ToInt32(dt.Rows[0][0].ToString());
+        }
+
+        public static DataTable AgregarEstadoToken(DataTable dt, string Estado)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                dt.Columns.Add("EstatoToken", typeof(string), Estado).SetOrdinal(0);
+            }
+            else
+            {
+                dt.Reset();
+                dt.Clear();
+
+                try
+                {
+                    DataColumn Col = new DataColumn();
+                    Col.ColumnName = "EstadoToken";
+                    dt.Columns.Add(Col);
+
+                    DataRow Fila = dt.NewRow();
+                    Fila["EstadoToken"] = Estado;
+                    dt.Rows.Add(Fila);
+                }
+                catch
+                {
+                    DataRow Fila = dt.NewRow();
+                    Fila["EstadoToken"] = Estado;
+                    dt.Rows.Add(Fila);
+                }
+            }
+            return dt;
+        }
+
     }
 }

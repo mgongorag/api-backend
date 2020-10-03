@@ -2,7 +2,7 @@
 {
     public class EntidadUsuarios: EntidadTokens
     {
-        public int idUsuario { get ; set; }
+        public int IdUsuario { get ; set; }
         public string TxtNombres { get; set; }
         public string TxtApellidos { get ; set; }
         public string TxtDireccion { get ; set; }

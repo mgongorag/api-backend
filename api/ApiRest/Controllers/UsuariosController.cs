@@ -21,9 +21,9 @@ namespace ApiRest
 
         [HttpPost]
         [Route("api/ObtenerUsuarios")]
-        public DataTable obtenerUsuarios()
+        public DataTable obtenerUsuarios(EntidadUsuarios entidad)
         {
-            return DatosUsuario.obtenerUsuarios();
+            return DatosUsuario.obtenerUsuarios(entidad);
         }
 
         [HttpPost]
@@ -52,6 +52,13 @@ namespace ApiRest
         public DataTable inicioDeSesion(EntidadUsuarios entidad)
         {
             return DatosUsuario.inicioDeSesion(entidad);
+        }
+
+        [HttpPost]
+        [Route("api/MenuUsuario")]
+        public DataTable MenuUsuario(EntidadUsuarios entidad)
+        {
+            return DatosUsuario.MenuUsuario(entidad);
         }
 
     }

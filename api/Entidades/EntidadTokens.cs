@@ -16,5 +16,6 @@ namespace Entidades
         public string fechaIngreso { get; set; }
         public int intEstado { get; set; }
         public int idInstitucion { get; set; }
+        public int idModulo { get; set; }
     }
 }
