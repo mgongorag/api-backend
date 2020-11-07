@@ -159,3 +159,75 @@ ALTER SCHEMA Sesion TRANSFER dbo.TblRolesPorMenus;
 
 INSERT INTO Sistema.TblInstituciones values(1, 201, 'Ministerio de Salud', 1, 'Ciudad de Guatemala', getdate(), 1);
 INSERT INTO Sesion.TblUsuariosPorInstitucion values (1, 1, 1,1, getdate(), 1);
+
+
+CREATE TABLE TblFactores (
+	idFactor		SMALLINT NOT NULL PRIMARY KEY,
+	TxtFactor		NVARCHAR(200),
+	TxtDescripcion	NVARCHAR(MAX),
+	IdUsuario		INT,
+	FechaIngreso	DATETIME,
+	intEstado		TINYINT
+	)
+
+ALTER SCHEMA RRHH TRANSFER dbo.TblFactores;
+
+
+CREATE TABLE TblEscalasDeCalificacion (
+		IdEscalaDeCalificacion	TINYINT PRIMARY KEY,
+		TxtEscalaDeCalificacion	NVARCHAR(250),
+		DblPunteo				DECIMAL(5,2),
+		TxtDescripcion			NVARCHAR(MAX),
+		IdUsuario				INT,
+		FechaIngreso			DATETIME,
+		IntEstado				TINYINT
+	)
+
+CREATE TABLE TblSubFactores (
+		idSubFactor				SMALLINT PRIMARY KEY,
+		TxtSubFactor			NVARCHAR(200),
+		TxtDescripcion			NVARCHAR(MAX),
+		IdUsuario				INT,
+		FechaIngreso			DATETIME,
+		IntEstado				TINYINT
+	)
+
+CREATE TABLE TblTiposDeEvaluaciones (
+		IdTipoDeEvaluacion		TINYINT PRIMARY KEY,
+		TxtTipoDeEvaluacion		NVARCHAR(150),
+		IdUsuario				INT,
+		FechaIngreso			DATETIME,
+		IntEstado				TINYINT
+	)
+
+CREATE TABLE TblEvaluacionesEncabezado (
+		IdEvaluacionEncabezado	INT PRIMARY KEY,
+		IdTipoEvaluacion		TINYINT,
+		Anio					SMALLINT,
+		IdUsuario				INT,
+		FechaIngreso			DATETIME,
+		IntEstado				TINYINT,
+		FOREIGN KEY (IdTipoEvaluacion) REFERENCES TblTiposDeEvaluaciones(IdTipoDeEvaluacion)
+	)
+
+CREATE TABLE TblEvaluacionesAplicadasEncabezado (
+		IdEvaluacionAplicadaEncabezado	INT NOT NULL PRIMARY KEY,
+		IdInstitucion					SMALLINT NOT NULL,
+		IdEvaluacionEncabezado			INT NOT NULL,
+		IdEmpleado						INT NOT NULL,
+		FechaDeAplicacion				DATE NOT NULL,
+		FechaInicial					DATE NOT NULL,
+		FechaFinal						DATE NOT NULL,
+		DblPunteoTotal					DECIMAL (5,2) NOT NULL,
+		TxtObservacionesDelJefe			NVARCHAR(MAX),
+		TxtObservacionesDelEmpleado		NVARCHAR(MAX),
+		IdUsuario						INT,
+		FechaIngreso					DATETIME,
+		IntEstado						TINYINT,
+		FOREIGN KEY (IdInstitucion) REFERENCES Sistema.TblInstituciones(idInstitucion),
+		FOREIGN KEY (IdEvaluacionEncabezado) REFERENCES 
+		)
+
+	
+
+
